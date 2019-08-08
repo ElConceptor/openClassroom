@@ -1,0 +1,35 @@
+
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': isScorePositif(),
+'list-group-item-danger':  isScoreNegatif()}">
+
+<!-- to apply dedicated color on text , not required but i wanted to ensure it works -->
+<div class="container-fluid" [ngStyle]="{color: getColor()}">
+  <p class="display-4">{{title | uppercase}} </p>
+   
+  <p>{{content}} </p>
+</div>
+
+<div class="container-fluid">
+<table class="container-fluid">
+    <tr>
+        <td>
+
+<p> @created: {{created_at | date}} </p>
+</td>
+<td>
+<button type="button" class="btn btn-primary" (click)="like(1)">
+        Lover  <span class="badge badge-light">{{loveIts}}</span>
+</button>
+</td><td>
+<button type="button" class="btn btn-danger" (click)="like(-1)">
+        Don't love  <span class="badge badge-light">{{dontLoveIts}}</span>
+</button>
+</td>
+</tr>
+<tr><td>@last vote : {{last_update | date : 'medium' }}</td></tr>
+
+</table>
+
+</div>
+</li>
